@@ -15,7 +15,7 @@ export default function Filter() {
   const fetchApps = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/app/full-details`
+        `https://app-store-application.vercel.app/api/app/full-details`
       );
       const appsData = await response.json();
 
