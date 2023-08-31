@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
-const port = "https://app-store-application.vercel.app";
 const prisma = new PrismaClient();
 app.use(express.json());
 
@@ -12,7 +11,7 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 const appStoreScraper = require("app-store-scraper");
 
@@ -138,8 +137,4 @@ app.get("/api/apps/details", async (req, res) => {
       .status(500)
       .json({ error: "An error occurred while fetching app details" });
   }
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
 });
