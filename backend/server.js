@@ -19,17 +19,17 @@ app.get("/api/app/full-details", async (req, res) => {
   let { collection, category, country, lang, num } = req.query;
 
   collection = appStoreScraper.collection.TOP_FREE_IOS;
-
+  console.log("Yes");
   try {
     const appDataFromDB = await prisma.App.findFirst({
       where: {
         collection: collection,
       },
     });
-
+    console.log("Yes");
     const currentTime = new Date();
     const oneHourAgo = new Date(currentTime - 60 * 60 * 1000);
-
+    console.log("Yes");
     if (appDataFromDB) {
       if (appDataFromDB.updatedDate > oneHourAgo) {
         const allAppDataFromDB = await prisma.App.findMany({
