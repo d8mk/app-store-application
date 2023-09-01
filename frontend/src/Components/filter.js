@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Filter() {
-  const [thresholdDate, setThresholdDate] = useState(
-    localStorage.getItem("thresholdDate") || ""
+  const [releasedDate, setReleasedDate] = useState(
+    localStorage.getItem("releasedDate") || ""
   );
   const [updatedDate, setUpdatedDate] = useState(
     localStorage.getItem("updatedDate") || ""
@@ -18,7 +18,7 @@ export default function Filter() {
         `https://api-backend-kappa.vercel.app/api/fullDetails`);
       const appsData = await response.json();
 
-      const userDate = new Date(thresholdDate);
+      const userDate = new Date(releasedDate);
 
       const releasedApp = appsData.filter((app) => {
         const appReleasedDate = new Date(app.released);
@@ -45,8 +45,8 @@ export default function Filter() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("thresholdDate", thresholdDate);
-  }, [thresholdDate]);
+    localStorage.setItem("releasedDate", releasedDate);
+  }, [releasedDate]);
 
   useEffect(() => {
     localStorage.setItem("updatedDate", updatedDate);
@@ -56,14 +56,14 @@ export default function Filter() {
     <div className="bg-gray-100 p-6 min-h-screen">
       <h1 className="text-3xl font-semibold mb-4">App Store Apps</h1>
       <div className="mb-4 space-x-4">
-        <label htmlFor="thresholdDate" className="font-medium">
-          Threshold Date:
+        <label htmlFor="releasedDate" className="font-medium">
+          Released Date:
         </label>
         <input
           type="date"
-          id="thresholdDate"
-          value={thresholdDate}
-          onChange={(e) => setThresholdDate(e.target.value)}
+          id="releasedDate"
+          value={releasedDate}
+          onChange={(e) => setReleasedDate(e.target.value)}
           className="border rounded-md p-2"
         />
         <label htmlFor="updatedDate" className="font-medium">
