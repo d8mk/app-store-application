@@ -34,7 +34,7 @@ export default function AppDetail() {
   const fetchAppDetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/apps/details/?id=${appId}`
+        `https://api-backend-kappa.vercel.app/api/details?id=${appId}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -50,7 +50,7 @@ export default function AppDetail() {
   const fetchAppReviews = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/apps/reviews/?id=${appId}&limit=10`
+        `https://api-backend-kappa.vercel.app/api/reviews?id=${appId}&limit=10`
       );
       if (response.ok) {
         const data = await response.json();
@@ -66,7 +66,7 @@ export default function AppDetail() {
   const fetchAppRatings = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/apps/ratings/?id=${appId}`
+        `https://api-backend-kappa.vercel.app/api/ratings?id=${appId}`
       );
       if (response.ok) {
         const data = await response.json();
