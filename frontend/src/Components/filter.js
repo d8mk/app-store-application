@@ -15,8 +15,7 @@ export default function Filter() {
   const fetchApps = async () => {
     try {
       const response = await fetch(
-        `https://app-store-application.vercel.app/api/app/full-details`, { mode: 'no-cors' }
-      );
+        `https://api-backend-kappa.vercel.app/api/fullDetails`);
       const appsData = await response.json();
 
       const userDate = new Date(thresholdDate);
