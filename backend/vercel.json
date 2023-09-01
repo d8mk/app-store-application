@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/app/full-details",
+      "dest": "/"
+    },
+    {
+      "src": "/api/apps/ratings",
+      "dest": "/"
+    },
+    {
+      "src": "/api/apps/reviews",
+      "dest": "/"
+    },
+    {
+      "src": "/api/apps/details",
+      "dest": "/"
+    }
+  ]
+}
